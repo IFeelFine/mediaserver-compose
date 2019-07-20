@@ -1,0 +1,25 @@
+---
+version: "2"
+networks:
+  net_media:
+    internal: true
+  net_mgmt:
+    driver: macvlan
+    driver_opts:
+      parent: team0.75
+    ipam:
+      config:
+        - subnet: 10.7.5.72/29
+          gateway: 10.7.5.78
+  net_proxy:
+  net_downld:
+    driver: macvlan
+    driver_opts:
+      parent: team0.61
+    ipam:
+      config:
+        - subnet: 10.61.61.60/30
+          gateway: 10.61.61.61
+services:
+  container_name: jackett
+  image
